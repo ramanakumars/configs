@@ -122,6 +122,12 @@ nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 
+set tabstop=4
+set shiftwidth=4
+
+nnoremap t gt
+nnoremap T gT
+
 " bash style autocomplete
 set wildmode=longest,list,full
 set wildmenu
