@@ -46,7 +46,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'dunckr/vim-monokai-soda'
 Plug 'flrnd/plastic.vim'
 
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
 
