@@ -128,8 +128,8 @@ nnoremap <leader>9 9gt
 set tabstop=4
 set shiftwidth=4
 
-nnoremap t gt
-nnoremap T gT
+nnoremap tt gt
+nnoremap TT gT
 
 " bash style autocomplete
 set wildmode=longest,list,full
