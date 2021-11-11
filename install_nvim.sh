@@ -7,13 +7,14 @@ cd;
 ## install neovim
 sudo apt-get update;
 sudo apt-get -y install neovim;
+sudo apt-get -y install python3 python3-pip
 sudo -H python3 -m pip install neovim jedi;
 
 ## get the config
 cd ${TOOLSDIR};
 
-cp -r configs/.config/nvim ~/.config/;
-cp configs/.vimrc ~/;
+cp -r .config/nvim ~/.config/;
+cp .vimrc ~/;
 
 ## install vim-plugged
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
