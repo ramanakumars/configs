@@ -5,6 +5,7 @@ sudo apt-get -y install python3 python3-pip
 sudo -H python3 -m pip install -r base_packages.txt
 
 ./install_nvim.sh
+./install_zsh.sh
 
 # Install tmux
 sudo apt-get install tmux
