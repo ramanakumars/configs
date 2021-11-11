@@ -1,0 +1,9 @@
+# standard packages
+numpy
+scipy
+matplotlib
+astropy
+netCDF4
+h5py
+scikit-image
+scikit-learn

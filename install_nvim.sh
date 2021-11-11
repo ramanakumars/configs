@@ -5,9 +5,8 @@ TOOLSDIR=$(dirname $(readlink -f $0));
 cd;
 
 ## install neovim
-sudo apt-get update;
+sudo apt-get update
 sudo apt-get -y install neovim;
-sudo apt-get -y install python3 python3-pip
 sudo -H python3 -m pip install neovim jedi;
 
 ## get the config
