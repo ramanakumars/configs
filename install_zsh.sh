@@ -13,4 +13,4 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 cp -rp myown.zsh-theme ~/.oh-my-zsh/themes/
 
 # set the theme
-sed 's/ZSH_THEME=.*/ZSH_THEME="myown"/' ~/.zshrc
+sed -i 's/ZSH_THEME=.*/ZSH_THEME="myown"/' ~/.zshrc
