@@ -55,16 +55,25 @@ Plug 'ncm2/ncm2-bufword'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-jedi'
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+Plug 'vim-syntastic/syntastic'
+
 " If you don't have nodejs and yarn
 " use pre build, add 'vim-plug' to the filetype list so vim-plug can update this plugin
 " see: https://github.com/iamcco/markdown-preview.nvim/issues/50
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
+Plug 'vim-scripts/pylint.vim'
+
 " for Latex
 Plug 'lervag/vimtex'
 
+Plug 'elzr/vim-json'
+
 " Initialize plugin system
 call plug#end()
+
 
 set termguicolors
 colorscheme minimalist
@@ -128,8 +137,8 @@ nnoremap <leader>9 9gt
 set tabstop=4
 set shiftwidth=4
 
-nnoremap <C-t> gt
-nnoremap <C-T> gT
+nnoremap t gt
+nnoremap T gT
 
 " bash style autocomplete
 set wildmode=longest,list,full
@@ -163,3 +172,24 @@ let g:vimtex_compiler_latexmk = {
     \    '-interaction=nonstopmode',
     \ ],
     \}
+
+
+" syntastic config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_quiet_messages = { "type": "style" }
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_args = "--ignore E501"
+
+" see :h syntastic-loclist-callback
+function! SyntasticCheckHook(errors)
+    if !empty(a:errors)
+        let g:syntastic_loc_list_height = min([len(a:errors), 10])
+    endif
+endfunction
