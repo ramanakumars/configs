@@ -14,6 +14,7 @@ cd ${TOOLSDIR};
 
 cp -r .config/nvim ~/.config/;
 cp .vimrc ~/;
+cp .pylintrc ~/;
 
 ## install vim-plugged
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
