@@ -1,16 +1,23 @@
 #!/bin/bash
 
+export configs_dir=$(pwd);
+
 # get zsh
 sudo apt-get update
 sudo apt-get -y install zsh
 
 sudo chsh -s /bin/zsh ${USER}
 
-# get oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# get prezto
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
-# copy the theme over 
-cp -rp myown.zsh-theme ~/.oh-my-zsh/themes/
+cd ~/
 
-# set the theme
-sed -i 's/ZSH_THEME=.*/ZSH_THEME="myown"/' ~/.zshrc
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done
+
+cd configs_dir;
+
+cat .zshrc > ~/.zshrc
