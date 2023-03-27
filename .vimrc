@@ -61,6 +61,8 @@ Plug 'lervag/vimtex'
 
 Plug 'elzr/vim-json'
 
+Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
+
 " Initialize plugin system
 call plug#end()
 
