@@ -61,7 +61,7 @@ Plug 'lervag/vimtex'
 
 Plug 'elzr/vim-json'
 
-Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' }
+Plug 'tell-k/vim-autopep8'
 
 " Initialize plugin system
 call plug#end()
@@ -278,15 +278,7 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 " provide custom statusline: lightline.vim, vim-airline
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" syntastic config
-" set statusline^=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-" " 
-" let g:syntastic_always_populate_loc_list = 0
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_quiet_messages = { }
-" let g:syntastic_python_checkers = ['flake8']
-" let g:syntastic_python_flake8_args = "--ignore E501,W503,W504"
+autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
+let g:autopep8_ignore="E501,W293"
+let g:autopep8_max_line_length=120
+let g:autopep8_disable_show_diff=1
