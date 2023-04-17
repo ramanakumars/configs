@@ -50,6 +50,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " autocompletion
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+Plug 'yaegassy/coc-pylsp', {'do': 'yarn install --frozen-lockfile'}
 
 Plug 'tree-sitter/tree-sitter-python'
 
