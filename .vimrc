@@ -58,9 +58,9 @@ Plug 'lervag/vimtex'
 
 Plug 'elzr/vim-json'
 
-Plug 'tell-k/vim-autopep8'
-
 Plug 'preservim/tagbar'
+
+Plug 'tell-k/vim-autopep8'
 
 " Initialize plugin system
 call plug#end()
@@ -277,7 +277,9 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 " provide custom statusline: lightline.vim, vim-airline
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#tagbar#flags = 'f'
+
 let g:autopep8_ignore="E501,W293"
 let g:autopep8_max_line_length=120
 let g:autopep8_disable_show_diff=1

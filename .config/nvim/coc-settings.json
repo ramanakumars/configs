@@ -1,10 +1,11 @@
 {
-	"suggest.autoTrigger": "always",
-	"diagnostic.level": "error",
-	"python.linting.enabled": true,
-	"python.linting.pylintEnabled": false,
-	"python.linting.flake8Enabled": true,
-	"python.linting.flake8Args": ["--ignore","E501,W503,W504"],
-	"pyright.inlayHints.variableTypes": true,
-	"pyright.inlayHints.functionReturnTypes": false
+	"suggest.enablePreview": true,
+	"diagnostic.virtualText": true,
+	"diagnostic.virtualTextCurrentLineOnly": true,
+	"pylsp.plugins.pycodestyle.enabled": false,
+	"pylsp.plugins.pylint.enabled": false,
+	"pylsp.plugins.pydocstyle.enabled": false,
+	"pylsp.plugins.pyflakes.enabled": false,
+	"pylsp.plugins.flake8.enabled": true,
+	"pylsp.plugins.flake8.ignore": "E501,W503,W504"
 }
