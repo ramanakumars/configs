@@ -4,21 +4,18 @@ TOOLSDIR=$(dirname $(readlink -f $0));
 
 cd;
 
-## install neovim
-sudo apt-get update
-sudo apt-get -y install neovim;
-sudo -H python3 -m pip install neovim jedi;
+# install neovim
+python3 -m pip install neovim pynvim;
 
-## get the config
+# get the config
 cd ${TOOLSDIR};
 
 cp -r .config/nvim ~/.config/;
-cp .vimrc ~/;
-cp .pylintrc ~/;
 
-## install vim-plugged
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# install packer
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-## install plugins
-nvim +PlugInstall
+# install plugins
+nvim +PackerInstall +qall
+nvim "+MasonInstall autopep8 flake8 json-lsp lua-language-server" +qall
