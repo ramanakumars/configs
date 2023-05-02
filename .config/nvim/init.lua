@@ -2,7 +2,11 @@ require("_plug")
 require("_lsp")
 require("_cnfg")
 require("_keybinds")
-require("mason").setup()
+require("mason").setup({
+  ui = {
+    border = "single"
+  }
+})
 
 -- airline
 vim.g.airline_section_z = '%3.3l:%-03.3c'
