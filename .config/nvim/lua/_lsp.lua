@@ -95,9 +95,9 @@ lspconfig.pylsp.setup {
 }
 
 vim.diagnostic.config({
-  virtual_text = true,
+  virtual_text = false,
   signs = true,
-  underline = true,
+  underline = false,
   update_in_insert = false,
   severity_sort = false,
 })
