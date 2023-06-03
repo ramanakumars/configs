@@ -11,6 +11,7 @@ lspconfig['lua_ls'].setup {
 	}
 }
 lspconfig['jsonls'].setup {}
+lspconfig['clangd'].setup {}
 
 vim.o.updatetime = 50
 vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]

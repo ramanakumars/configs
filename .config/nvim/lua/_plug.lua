@@ -1,12 +1,11 @@
 -- Plugins
-vim.cmd [[packadd packer.nvim]]
+vim.cmd [[ packadd packer.nvim ]]
 
 -- vim.call('plug#begin', '~/.config/nvim/plugged')
 return require('packer').startup(function(use)
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 	use 'https://github.com/rafi/awesome-vim-colorschemes'
-	use 'vim-airline/vim-airline'
 	use 'sheerun/vim-polyglot'
 	use 'dunckr/vim-monokai-soda'
 	use 'flrnd/plastic.vim'
@@ -19,7 +18,6 @@ return require('packer').startup(function(use)
 
 	use 'lervag/vimtex'
 	use 'elzr/vim-json'
-	use 'preservim/tagbar'
 	use 'tell-k/vim-autopep8'
 
 	use 'hrsh7th/nvim-cmp'
@@ -30,5 +28,16 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/cmp-nvim-lsp-signature-help'
 	use "L3MON4D3/LuaSnip"
 
+	use 'marko-cerovac/material.nvim'
+
+	use 'kyazdani42/nvim-web-devicons'
+	use {
+	  'nvim-lualine/lualine.nvim',
+	  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+	}
+
+	use 'nvim-lua/lsp-status.nvim'
+
 	use('williamboman/mason.nvim')
 end)
+
