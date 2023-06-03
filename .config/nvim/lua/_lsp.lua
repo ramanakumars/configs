@@ -1,7 +1,31 @@
+local lsp_status = require('lsp-status')
+-- completion_customize_lsp_label as used in completion-nvim
+-- Optional: customize the kind labels used in identifying the current function.
+-- g:completion_customize_lsp_label is a dict mapping from LSP symbol kind 
+-- to the string you want to display as a label
+-- lsp_status.config { kind_labels = vim.g.completion_customize_lsp_label }
+
+lsp_status.config({
+    indicator_errors = '',
+    indicator_warnings = '',
+    indicator_info = '',
+    indicator_ok = '',
+})
+
+-- Register the progress handler
+lsp_status.register_progress()
+
+-- Set up lspconfig.
+config = {}
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+config.capabilities = vim.tbl_extend('keep', capabilities or {}, lsp_status.capabilities)
+
 -- Setup language servers.
 local lspconfig = require('lspconfig')
 lspconfig.tsserver.setup {}
 lspconfig['lua_ls'].setup {
+    on_attach = lsp_status.on_attach,
+    capabilities = config.capabilities,
 	settings = {
 		Lua = {
 			diagnostics = {
@@ -10,11 +34,15 @@ lspconfig['lua_ls'].setup {
 		}
 	}
 }
-lspconfig['jsonls'].setup {}
-lspconfig['clangd'].setup {}
-
-vim.o.updatetime = 50
-vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+lspconfig['jsonls'].setup {
+    on_attach = lsp_status.on_attach,
+    capabilities = config.capabilities
+}
+lspconfig['clangd'].setup {
+    handlers = lsp_status.extensions.clangd.setup(),
+    on_attach = lsp_status.on_attach,
+    capabilities = config.capabilities
+}
 
 -- Set up nvim-cmp.
 local cmp = require'cmp'
@@ -65,13 +93,11 @@ cmp.setup.cmdline(':', {
   })
 })
 
--- Set up lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
 -- PYLSP
 lspconfig.pylsp.setup {
-	capabilities = capabilities,
+	capabilities = config.capabilities,
 	configurationSources = {'flake8'},
+    on_attach = lsp_status.on_attach,
 	settings = {
 		pylsp = {
 			plugins = {
@@ -102,6 +128,7 @@ vim.diagnostic.config({
   severity_sort = false,
 })
 
-
 -- autopep8
 -- local Autopep8 = require'vim-autopep8'
+vim.o.updatetime = 50
+vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
