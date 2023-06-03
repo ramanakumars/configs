@@ -80,4 +80,6 @@ require('material').setup({
     custom_highlights = {}, -- Overwrite highlights with your own
 })
 
+require('Comment').setup()
+
 vim.cmd "colorscheme material"
