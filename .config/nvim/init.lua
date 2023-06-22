@@ -3,6 +3,7 @@ require("_lsp")
 require("_cnfg")
 require("_keybinds")
 require("_lualine")
+require("_telescope")
 require("mason").setup({
   ui = {
     border = "single"
