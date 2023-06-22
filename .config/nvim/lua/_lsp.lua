@@ -112,6 +112,9 @@ lspconfig.pylsp.setup {
 				pycodestyle = {
 					enabled = false
 				},
+                pyflakes = {
+                    enabled = false
+                },
 				jedi_completion = {
 					enabled = true,
 				}
@@ -130,5 +133,30 @@ vim.diagnostic.config({
 
 -- autopep8
 -- local Autopep8 = require'vim-autopep8'
+--[[
+vim.api.nvim_create_autocmd("CursorHold", {
+  buffer = bufnr,
+  callback = function()
+    local opts = {
+      focusable = false,
+      close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+      border = 'rounded',
+      source = 'always',
+      prefix = ' ',
+      scope = 'cursor',
+    }
+    vim.diagnostic.open_float(nil, opts)
+  end
+})
+--]]
 vim.o.updatetime = 50
-vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+local opts = {
+  focusable = false,
+  close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+  border = 'rounded',
+  source = 'always',
+  prefix = ' ',
+  scope = 'line',
+}
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, nil, opts)
+ -- vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
