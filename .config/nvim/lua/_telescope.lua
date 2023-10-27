@@ -2,12 +2,19 @@ require('telescope').setup{
   defaults = {
     -- Default configuration for telescope goes here:
     -- config_key = value,
+    layout_strategy = "vertical",
+    layout_config = {
+      vertical = { height = 0.8 }
+    },
     mappings = {
       i = {
         -- map actions.which_key to <C-h> (default: <C-/>)
         -- actions.which_key shows the mappings for your picker,
         -- e.g. git_{create, delete, ...}_branch for the git_branches picker
-        ["<C-h>"] = "which_key"
+        ["<C-h>"] = "which_key",
+        ["<cr>"] = function(bufnr)
+          require("telescope.actions.set").edit(bufnr, "tab drop")
+        end
       }
     }
   },
