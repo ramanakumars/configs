@@ -20,7 +20,7 @@ vim.g.material_style = "darker";
 require('material').setup({
     contrast = {
         terminal = false, -- Enable contrast for the built-in terminal
-        sidebars = false, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
+        sidebars = true, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
         floating_windows = false, -- Enable contrast for floating windows
         cursor_line = false, -- Enable darker background for the cursor line
         non_current_windows = false, -- Enable contrasted background for non-current windows
@@ -30,7 +30,7 @@ require('material').setup({
     styles = { -- Give comments style such as bold, italic, underline etc.
         comments = { --[[ italic = true ]] },
         strings = { --[[ bold = true ]] },
-        keywords = { --[[ underline = true ]] },
+        keywords = { bold = true},
         functions = { --[[ bold = true, undercurl = true ]] },
         variables = {},
         operators = {},
@@ -48,12 +48,12 @@ require('material').setup({
         -- "mini",
         -- "neogit",
         -- "neorg",
-        -- "nvim-cmp",
+        "nvim-cmp",
         -- "nvim-navic",
         -- "nvim-tree",
         -- "nvim-web-devicons",
         -- "sneak",
-        -- "telescope",
+        "telescope",
         -- "trouble",
         -- "which-key",
     },
@@ -68,7 +68,7 @@ require('material').setup({
 
     high_visibility = {
         lighter = false, -- Enable higher contrast text for lighter style
-        darker = false -- Enable higher contrast text for darker style
+        darker = true -- Enable higher contrast text for darker style
     },
 
     lualine_style = "stealth", -- Lualine style ( can be 'stealth' or 'default' )
@@ -79,7 +79,39 @@ require('material').setup({
 
     custom_highlights = {}, -- Overwrite highlights with your own
 })
+vim.cmd "colorscheme material"
+
+--[[ semshi stuff ]]--
+vim.api.nvim_set_var('semshi#simplify_markup', true)
+vim.api.nvim_set_var('semshi#no_default_builtin_highlight', false)
+
+-- require('kanagawa').setup({
+--     compile = false,             -- enable compiling the colorscheme
+--     undercurl = true,            -- enable undercurls
+--     commentStyle = { italic = true },
+--     functionStyle = {},
+--     keywordStyle = { italic = true},
+--     statementStyle = { bold = true },
+--     typeStyle = {},
+--     transparent = false,         -- do not set background color
+--     dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
+--     terminalColors = true,       -- define vim.g.terminal_color_{0,17}
+--     colors = {                   -- add/modify theme and palette colors
+--         palette = {},
+--         theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+--     },
+--     overrides = function(colors) -- add/modify highlights
+--         return {}
+--     end,
+--     theme = "wave",              -- Load "wave" theme when 'background' option is not set
+--     background = {               -- map the value of 'background' option to a theme
+--         dark = "wave",           -- try "dragon" !
+--         light = "lotus"
+--     },
+-- })
+--
+-- -- setup must be called before loading
+-- vim.cmd("colorscheme kanagawa")
 
 require('Comment').setup()
 
-vim.cmd "colorscheme material"

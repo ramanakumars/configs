@@ -29,6 +29,9 @@ return require('packer').startup(function(use)
 	use "L3MON4D3/LuaSnip"
 
 	use 'marko-cerovac/material.nvim'
+	-- use "rebelot/kanagawa.nvim"
+
+	use {'wookayin/semshi', run=':UpdateRemotePlugins', tag='*'}
 
 	use 'kyazdani42/nvim-web-devicons'
 	use {

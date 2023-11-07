@@ -106,7 +106,7 @@ lspconfig.pylsp.setup {
 				},
 				flake8 = {
 					enabled = true,
-					ignore = {'E501','W503','W504'},
+					ignore = {'E501','W503','W504','E731'},
 					maxLineLength = 100
 				},
 				pycodestyle = {
