@@ -28,10 +28,31 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/cmp-nvim-lsp-signature-help'
 	use "L3MON4D3/LuaSnip"
 
-	use 'marko-cerovac/material.nvim'
+	-- use 'marko-cerovac/material.nvim'
 	-- use "rebelot/kanagawa.nvim"
+	use({
+	  'glepnir/zephyr-nvim',
+	  requires = { 'nvim-treesitter/nvim-treesitter', opt = true },
+	})
 
-	use {'wookayin/semshi', run=':UpdateRemotePlugins', tag='*'}
+	use {
+	  'wookayin/semshi',
+	  build = ':UpdateRemotePlugins',
+	  config = function()
+		-- Defines custom user highlight for semshi.
+		local function setup_highlight()
+		  -- vim.api.nvim_set_hl(0, "semshiBuiltIn", vim.api.nvim_get_hl('Type') )
+		  vim.api.nvim_set_hl(0, "semshiSelected", { cterm="underline", gui="underline" } )
+		end
+		-- Apply the highlight setting whenever colorscheme changes.
+		vim.api.nvim_create_autocmd('Colorscheme', {
+		  pattern = '*',
+		  group = vim.api.nvim_create_augroup('semshi_colorscheme', { clear = true }),
+		  callback = setup_highlight,
+		})
+		setup_highlight()
+	  end,
+  	}
 
 	use 'kyazdani42/nvim-web-devicons'
 	use {
