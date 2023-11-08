@@ -82,12 +82,19 @@ vim.g.python_highlight_space_errors=0
 -- vim.cmd "colorscheme material"
 --
 
-require('zephyr')
+-- require('zephyr')
+require('onedark').setup{
+  style = 'darker'
+}
+require('onedark').load()
 
 vim.cmd [[
-    hi! pythonDottedName gui=underdotted
+    hi pythonDottedName gui=underdotted
     hi SemshiImported guifg=#dfdfdf gui=bold
     hi SemshiSelected gui=underline
+    hi def link SemshiGlobal Identifier
+    hi def link semshiBuiltin @type.builtin.python
+    hi def link semshiAttribute Identifier
 ]]
 
 -- require('kanagawa').setup({

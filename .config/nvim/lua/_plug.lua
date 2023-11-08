@@ -30,10 +30,12 @@ return require('packer').startup(function(use)
 
 	-- use 'marko-cerovac/material.nvim'
 	-- use "rebelot/kanagawa.nvim"
-	use({
-	  'glepnir/zephyr-nvim',
-	  requires = { 'nvim-treesitter/nvim-treesitter', opt = true },
-	})
+	-- use({
+	--   'glepnir/zephyr-nvim',
+	--   requires = { 'nvim-treesitter/nvim-treesitter', opt = true },
+	-- })
+	--
+	use 'navarasu/onedark.nvim'
 
 	use {
 	  'wookayin/semshi',
