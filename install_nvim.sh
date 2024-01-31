@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/zsh
 
-TOOLSDIR=$(dirname $(readlink -f $0));
+TOOLSDIR="${0:A:h}"
 
 cd;
 

@@ -1,12 +1,6 @@
-#!/bin/bash
+#!/bin/zsh
 
-export configs_dir=$(pwd);
-
-# get zsh
-sudo apt-get update
-sudo apt-get -y install zsh
-
-sudo chsh -s /bin/zsh ${USER}
+TOOLSDIR="${0:A:h}"
 
 # get prezto
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
@@ -18,6 +12,6 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done
 
-cd configs_dir;
+cd $TOOLSDIR;
 
 cat .zshrc > ~/.zshrc
