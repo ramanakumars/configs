@@ -44,7 +44,7 @@ return require('packer').startup(function(use)
 		-- Defines custom user highlight for semshi.
 		local function setup_highlight()
 		  -- vim.api.nvim_set_hl(0, "semshiBuiltIn", vim.api.nvim_get_hl('Type') )
-		  vim.api.nvim_set_hl(0, "semshiSelected", { cterm="underline", gui="underline" } )
+		  vim.api.nvim_set_hl(0, "semshiSelected", { underline=true } )
 		end
 		-- Apply the highlight setting whenever colorscheme changes.
 		vim.api.nvim_create_autocmd('Colorscheme', {
