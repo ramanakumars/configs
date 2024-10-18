@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!zsh
 
 TOOLSDIR="${0:A:h}"
 
@@ -18,4 +18,4 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 
 # install plugins
 nvim +PackerInstall +qall
-nvim "+MasonInstall autopep8 flake8 json-lsp lua-language-server" +qall
+nvim "+MasonInstall json-lsp lua-language-server ruff-lsp" +qall

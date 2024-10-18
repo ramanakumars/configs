@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!zsh
 
 TOOLSDIR="${0:A:h}"
 
