@@ -22,7 +22,6 @@ config.capabilities = vim.tbl_extend('keep', capabilities or {}, lsp_status.capa
 
 -- Setup language servers.
 local lspconfig = require('lspconfig')
-lspconfig.tsserver.setup {}
 lspconfig['lua_ls'].setup {
     on_attach = lsp_status.on_attach,
     capabilities = config.capabilities,
@@ -95,33 +94,48 @@ cmp.setup.cmdline(':', {
 })
 
 -- PYLSP
-lspconfig.pylsp.setup {
-	capabilities = config.capabilities,
-	configurationSources = {'flake8'},
-    on_attach = lsp_status.on_attach,
-	settings = {
-		pylsp = {
-			plugins = {
-				autopep8 = {
-					enabled = false
-				},
-				flake8 = {
-					enabled = true,
-					ignore = {'E501','W503','W504','E731'},
-					maxLineLength = 100
-				},
-				pycodestyle = {
-					enabled = false
-				},
-                pyflakes = {
-                    enabled = false
-                },
-				jedi_completion = {
-					enabled = true,
-				}
-			}
-		}
-	}
+-- lspconfig.pylsp.setup {
+-- 	capabilities = config.capabilities,
+-- 	configurationSources = {'flake8', 'pyright'},
+--     on_attach = lsp_status.on_attach,
+-- 	settings = {
+-- 		pylsp = {
+-- 			plugins = {
+-- 				autopep8 = {
+-- 					enabled = false
+-- 				},
+-- 				flake8 = {
+-- 					enabled = true,
+-- 					ignore = {'E501','W503','W504','E731'},
+-- 					maxLineLength = 100
+-- 				},
+-- 				pycodestyle = {
+-- 					enabled = false
+-- 				},
+--                 pyflakes = {
+--                     enabled = false
+--                 },
+-- 				jedi_completion = {
+-- 					enabled = true,
+-- 				},
+-- 			}
+-- 		}
+-- 	}
+-- }
+
+lspconfig.ruff.setup {
+  capabilities = config.capabilities,
+  init_options = {
+    settings = {
+      logLevel = "debug",
+      lint = {
+        enable = true,
+        preview = true,
+        select = {"E", "F", "W"},
+ 	    ignore = {"E501", "E731"}
+      },
+    }
+  }
 }
 
 vim.diagnostic.config({
