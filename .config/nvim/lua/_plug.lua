@@ -14,8 +14,6 @@ return require('packer').startup(function(use)
 
 	use 'neovim/nvim-lspconfig'
 
-	use 'tree-sitter/tree-sitter-python'
-
 	use 'lervag/vimtex'
 	use 'elzr/vim-json'
 	use 'tell-k/vim-autopep8'
