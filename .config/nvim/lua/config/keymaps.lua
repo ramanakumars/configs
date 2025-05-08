@@ -7,9 +7,12 @@ end, { desc = "Open diagnostic in a float window" })
 -- clear the last search
 vim.api.nvim_set_keymap("n", "<leader>sc", ':let @/="" <cr>', { noremap = true, desc = "Clear search query" })
 
-vim.api.nvim_set_keymap("n", "t", "gt", { noremap = true, desc = "Go to next tab" })
+-- next/previous buffer
+vim.api.nvim_set_keymap("n", "t", "<cmd>bn<cr>", { noremap = true, desc = "Go to next tab" })
+vim.api.nvim_set_keymap("n", "T", "<cmd>bp<cr>", { noremap = true, desc = "Go to previous tab" })
 
-vim.api.nvim_set_keymap("n", "T", "gT", { noremap = true, desc = "Go to previous tab" })
+-- close buffer
+vim.api.nvim_set_keymap("n", "<leader>bd", "<cmd>bd<cr>", { noremap = true, desc = "Go to previous tab" })
 
 vim.api.nvim_set_keymap(
 	"n",
