@@ -11,6 +11,10 @@ return {
 			javascript = { "prettierd", "prettier", stop_after_first = true },
 			typescript = { "prettierd", "prettier", stop_after_first = true },
 			typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+
+			--- c/cpp
+			c = { "clang-format" },
+			cpp = { "clang_formatter" },
 		},
 	},
 
@@ -21,5 +25,9 @@ return {
 				"format.quote-style = 'preserve'",
 			},
 		}
-	end
+		require("conform").formatters.clang_formatter = {
+			command = "clang-format",
+			args = '--style="{BasedOnStyle: llvm, IndentWidth: 4, ColumnLimit: 100}"',
+		}
+	end,
 }
