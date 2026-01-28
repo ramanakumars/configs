@@ -242,6 +242,9 @@ return {
 					}
 				}
 			},
+			jinja_lsp = {
+				filetypes = { "jinja", "htmldjango" }
+			},
 			-- gopls = {},
 			-- pyright = {},
 			-- rust_analyzer = {},

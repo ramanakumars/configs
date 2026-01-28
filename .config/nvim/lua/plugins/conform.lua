@@ -12,6 +12,7 @@ return {
 			json = { "prettierd", "prettier", stop_after_first = true },
 			typescript = { "prettierd", "prettier", stop_after_first = true },
 			typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+			htmldjango = {"djlint"},
 
 			--- c/cpp
 			c = { "clang-format" },
