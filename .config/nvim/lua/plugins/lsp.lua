@@ -210,7 +210,7 @@ return {
 			bashls = {},
 
 			-- c, c++
-			clangd = {},
+			-- clangd = {},
 
 			-- python
 			ruff = {
@@ -242,9 +242,9 @@ return {
 					}
 				}
 			},
-			jinja_lsp = {
-				filetypes = { "jinja", "htmldjango" }
-			},
+			-- jinja_lsp = {
+			-- 	filetypes = { "jinja", "htmldjango" }
+			-- },
 			-- gopls = {},
 			-- pyright = {},
 			-- rust_analyzer = {},
@@ -254,9 +254,9 @@ return {
 			--    https://github.com/pmizio/typescript-tools.nvim
 			--
 			-- But for many setups, the LSP (`ts_ls`) will work just fine
-			ts_ls = {},
-			html = {},
-			tailwindcss = {},
+			-- ts_ls = {},
+			-- html = {},
+			-- tailwindcss = {},
 			lua_ls = {
 				-- cmd = { ... },
 				-- filetypes = { ... },
@@ -289,8 +289,8 @@ return {
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			"stylua", -- Used to format Lua code
-			"prettier",
-			"prettierd",
+			-- "prettier",
+			-- "prettierd",
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
