@@ -213,35 +213,35 @@ return {
 			-- clangd = {},
 
 			-- python
-			ruff = {
-				logLevel = "debug",
-				lint = {
-					enable = true,
-					preview = true,
-					select = { "E", "F", "W" },
-					ignore = { "E501", "E731" },
-				},
-				format = {
-					["quote-style"] = "preserve",
-					["skip-magic-trailing-comma"] = true
-				}
-			},
-			pylsp = {
-				settings = {
-					pylsp = {
-						plugins = {
-							pyflakes = { enabled = false },
-							pycodestyle = { enabled = false },
-							autopep8 = { enabled = false },
-							yapf = { enabled = false },
-							mccabe = { enabled = false },
-							pylsp_mypy = { enabled = false },
-							pylsp_black = { enabled = false },
-							pylsp_isort = { enabled = false },
-						}
-					}
-				}
-			},
+			-- ruff = {
+			-- 	logLevel = "debug",
+			-- 	lint = {
+			-- 		enable = true,
+			-- 		preview = true,
+			-- 		select = { "E", "F", "W" },
+			-- 		ignore = { "E501", "E731" },
+			-- 	},
+			-- 	format = {
+			-- 		["quote-style"] = "preserve",
+			-- 		["skip-magic-trailing-comma"] = true
+			-- 	}
+			-- },
+			-- pylsp = {
+			-- 	settings = {
+			-- 		pylsp = {
+			-- 			plugins = {
+			-- 				pyflakes = { enabled = false },
+			-- 				pycodestyle = { enabled = false },
+			-- 				autopep8 = { enabled = false },
+			-- 				yapf = { enabled = false },
+			-- 				mccabe = { enabled = false },
+			-- 				pylsp_mypy = { enabled = false },
+			-- 				pylsp_black = { enabled = false },
+			-- 				pylsp_isort = { enabled = false },
+			-- 			}
+			-- 		}
+			-- 	}
+			-- },
 			-- jinja_lsp = {
 			-- 	filetypes = { "jinja", "htmldjango" }
 			-- },

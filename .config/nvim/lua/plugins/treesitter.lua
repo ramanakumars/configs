@@ -3,7 +3,8 @@ return {
 	build = ":TSUpdate",
 	branch = "main",
 	opts = {
-		ensure_installed = { "c", "cpp", "lua", "vim", "vimdoc", "python" },
+		-- ensure_installed = { "c", "cpp", "lua", "vim", "vimdoc", "python" },
+		ensure_installed = { "lua", "vim", "vimdoc" },
 	},
 	config = function(_, opts)
 		-- install parsers from custom opts.ensure_installed
