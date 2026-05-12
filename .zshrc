@@ -43,7 +43,7 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
 
 alias dir='dir --color'
 alias ll='ls -l --color=auto'
-export PATH=$PATH:~/nvim-linux64/bin/:~/.local/bin/:~/ripgrep-13.0.0-x86_64-unknown-linux-musl/
+export PATH=$PATH:~/software/nvim-linux-x86_64/bin/:~/.local/bin/:~/software/ripgrep-15.1.0-x86_64-unknown-linux-musl/:~/software/fzf/
 
 module () {
     eval `/usr/bin/modulecmd zsh $*`

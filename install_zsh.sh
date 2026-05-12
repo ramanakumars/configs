@@ -1,5 +1,6 @@
-#!zsh
+#!/usr/bin/env zsh
 
+# the configs directory
 TOOLSDIR="${0:A:h}"
 
 # get prezto
@@ -15,3 +16,6 @@ done
 cd $TOOLSDIR;
 
 cat .zshrc > ~/.zshrc
+
+# copy the theme over
+cp prompy_myown_setup ~/.zprezto/modules/prompt/functions/
