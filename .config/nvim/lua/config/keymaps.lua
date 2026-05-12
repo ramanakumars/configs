@@ -5,21 +5,22 @@ vim.keymap.set("n", "<space>e", function()
 end, { desc = "Open diagnostic in a float window" })
 
 -- clear the last search
-vim.api.nvim_set_keymap("n", "<leader>sc", ':let @/="" <cr>', { noremap = true, desc = "Clear search query" })
+vim.keymap.set("n", "<leader>sc", ':let @/="" <cr>', { noremap = true, desc = "Clear search query" })
 
-
-vim.api.nvim_set_keymap(
+vim.keymap.set(
 	"n",
 	"[g",
 	"<cmd>lua vim.diagnostic.goto_prev()<CR>",
 	{ noremap = true, silent = true, desc = "Go to previous diagnostic" }
 )
 
-vim.api.nvim_set_keymap(
+vim.keymap.set(
 	"n",
 	"]g",
 	"<cmd>lua vim.diagnostic.goto_next()<CR>",
 	{ noremap = true, silent = true, desc = "Go to next diagnostic" }
 )
 
-vim.keymap.set("n", "<leader>cf", function() require('conform').format() end, { desc = "Format the document"} )
+vim.keymap.set("n", "<leader>cf", function()
+	require("conform").format()
+end, { desc = "Format the document" })

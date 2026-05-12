@@ -14,7 +14,7 @@ return {
 			-- htmldjango = {"djlint"},
 
 			--- c/cpp
-			-- c = { "clang-format" },
+			-- c = { "clang_formatter" },
 			-- cpp = { "clang_formatter" },
 		},
 	},

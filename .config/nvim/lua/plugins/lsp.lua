@@ -64,7 +64,7 @@ return {
 
 				-- Execute a code action, usually your cursor needs to be on top of an error
 				-- or a suggestion from your LSP for this to activate.
-				map("<leader>a", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
+				map("<leader>x", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
 
 				-- Find references for the word under your cursor.
 				map("<leader>r", require("fzf-lua").lsp_references, "[G]oto [R]eferences")
@@ -213,19 +213,21 @@ return {
 			-- clangd = {},
 
 			-- python
-			-- ruff = {
-			-- 	logLevel = "debug",
-			-- 	lint = {
-			-- 		enable = true,
-			-- 		preview = true,
-			-- 		select = { "E", "F", "W" },
-			-- 		ignore = { "E501", "E731" },
-			-- 	},
-			-- 	format = {
-			-- 		["quote-style"] = "preserve",
-			-- 		["skip-magic-trailing-comma"] = true
-			-- 	}
-			-- },
+			ruff = {
+				settings = {
+					logLevel = "debug",
+					lint = {
+						enable = true,
+						preview = true,
+						select = { "E", "F", "W" },
+						ignore = { "E501", "E731" },
+					},
+					format = {
+						["quote-style"] = "preserve",
+						["skip-magic-trailing-comma"] = true,
+					},
+				},
+			},
 			-- pylsp = {
 			-- 	settings = {
 			-- 		pylsp = {

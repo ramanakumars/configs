@@ -58,7 +58,7 @@ return {
 
 				if not parser_installed then
 					-- If not installed, install parser synchronously
-					require("nvim-treesitter").install({ parser_name }):wait(30000)
+					require("nvim-treesitter").install({ parser_name })
 				end
 
 				-- let's check again

@@ -1,6 +1,6 @@
 return {
 	"ibhagwan/fzf-lua",
-	dependencies = { "echasnovski/mini.icons" },
+	dependencies = { { "echasnovski/mini.icons", opts = { mock_package_compat = true } } },
 	opts = {},
 	keys = {
 		{
@@ -30,6 +30,13 @@ return {
 				require("fzf-lua").keymaps()
 			end,
 			desc = "Fuzzy find keymaps",
+		},
+		{
+			"<leader>fw",
+			function()
+				require("fzf-lua").grep_cword()
+			end,
+			desc = "Fuzzy grep of current word",
 		},
 	},
 }

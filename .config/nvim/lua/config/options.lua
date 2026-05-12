@@ -20,7 +20,7 @@ vim.opt.showmode = false
 
 vim.opt.wrap = false
 
-vim.opt.breakindent = false -- enable break indenta
+vim.opt.breakindent = false
 
 vim.opt.ignorecase = true -- ignore cases when searching
 vim.opt.smartcase = true
